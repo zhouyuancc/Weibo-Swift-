@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAAE8553F2D31977D6E6BDCA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF11983EB4F8DB044945A7C /* Pods.framework */; };
+		CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3135801D40465900F9F019 /* UIButton+Extension.swift */; };
 		CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382D471D2E45EC001370D3 /* AppDelegate.swift */; };
 		CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB382D4E1D2E45EC001370D3 /* Assets.xcassets */; };
 		CB382D5D1D2E45EC001370D3 /* Weibo_Swift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382D5C1D2E45EC001370D3 /* Weibo_Swift_Tests.swift */; };
@@ -42,6 +43,7 @@
 		8599B9C6B0D98CA27D930107 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9EF11983EB4F8DB044945A7C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F197D9A56039C7474E9A1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB3135801D40465900F9F019 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		CB382D441D2E45EB001370D3 /* 微博Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB382D471D2E45EC001370D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB382D4E1D2E45EC001370D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		CB5EBC7E1D3780EF009FEE62 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
+				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,
 			);

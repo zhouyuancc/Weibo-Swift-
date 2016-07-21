@@ -20,8 +20,22 @@ class MainViewController: UITabBarController {
         
         //添加子控制器
         addChildViewControllers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-//        nameSpaceByIf()
+// MARK: - 添加中间加号按钮
+        tabBar.addSubview(composeButton)
+        
+        //保存按钮尺寸
+        let rect = composeButton.frame
+        //计算宽度
+        let width = tabBar.bounds.width / CGFloat(childViewControllers.count)
+        //设置按钮的位置
+        composeButton.frame = CGRect(x: 2 * width, y: 0, width: width, height: rect.height)
+//        composeButton.frame = CGRectOffset(rect, 2 * width, 0)
+//        composeButton.center = tabBar.center
         
     }
 
@@ -53,7 +67,7 @@ class MainViewController: UITabBarController {
             
             for dict in objc
             {
-                ZYLog(dict)//["title": 首页123, "vcName": HomeTableViewController, "imageName": tabbar_home]
+//                ZYLog(dict)//["title": 首页123, "vcName": HomeTableViewController, "imageName": tabbar_home]
                 let title = dict["title"] as? String
                 let vcName = dict["vcName"] as? String
                 let imageName = dict["imageName"] as? String
@@ -62,13 +76,16 @@ class MainViewController: UITabBarController {
 
             }
             
-            ZYLog(objc)
+//            ZYLog(objc)
             
         }catch{
             //只要try对应的方法发生了异常,就会执行catch{}中的代码
             
             addChildViewControllerWithStr("HomeTableViewController", title: "首页", imageName: "tabbar_home")
             addChildViewControllerWithStr("MessageTableViewController", title: "消息", imageName: "tabbar_message_center")
+            
+            //加号按钮
+            addChildViewControllerWithStr("NullViewController", title: "", imageName: "")
             addChildViewControllerWithStr("DiscoverTableViewController", title: "发现", imageName: "tabbar_discover")
             addChildViewControllerWithStr("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
         }
@@ -86,7 +103,7 @@ class MainViewController: UITabBarController {
      */
     func addChildViewControllerWithStr(vcName: String?, title:String?, imageName: String?)
     {
-        //动态获取命名空间
+        //1.动态获取命名空间
         //由于字典\数组中只能存储对象,所以取出来是一个AnyObject;若key没有对应值,就取不到值AnyObject?
         guard let name =  NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as? String else{
             
@@ -96,16 +113,19 @@ class MainViewController: UITabBarController {
         
         //name有值
         //nameSpace命名空间
-        ZYLog(name)//如果name有()符号,获取不到class
+//        ZYLog(name)//如果name有()符号,获取不到class
         
+        // 2.根据字符串获取Class
         //string -> class
         var cls:AnyClass? = nil
         if let childControllerName = vcName
         {
             cls = NSClassFromString(name + "." + childControllerName)
         }
-        ZYLog(cls)
+//        ZYLog(cls)//Optional(微博Swift.HomeTableViewController)
         
+        // 3.根据Class创建对象
+        // Swift中如果想通过一个Class来创建一个对象, 必须告诉系统这个Class的确切类型
         //告诉系统这个Class的确切类型
         guard let typeCls = cls as? UITableViewController.Type else
         {
@@ -118,7 +138,7 @@ class MainViewController: UITabBarController {
         //通过Class创建对象
         let childController = typeCls.init()
         
-        ZYLog(childController)
+//        ZYLog(childController)
         
         childController.title = title
         if let ivName = imageName
@@ -127,9 +147,67 @@ class MainViewController: UITabBarController {
             childController.tabBarItem.selectedImage = UIImage(named: ivName + "_highlighted")
         }
         
+        //包装1个导航控制器
         let nav = UINavigationController(rootViewController:childController)
+        //将自控制器添加到UITabBarController中
         addChildViewController(nav)
     }
+    
+    /*
+     public : 最大权限, 可以在当前framework和其他framework中访问
+     internal : 默认的权限, 可以在当前framework中随意访问
+     private : 私有权限, 只能在当前文件中访问
+     以上权限可以修饰属性/方法/类
+     
+     在企业开发中建议严格的控制权限, 不想让别人访问的东西一定要private
+     */
+    // 如果给按钮的监听方法加上private就会报错, 报错原因是因为监听事件是由运行循环触发的, 而如果该方法是私有的只能在当前类中访问
+    // 而相同的情况在OC中是没有问题, 因为OC是动态派发的
+    // 而Swift不一样, Swift中所有的东西都在是编译时确定的
+    // 如果想让Swift中的方法也支持动态派发, 可以在方法前面加上 @objc
+    // 加上 @objc就代表告诉系统需要动态派发
+    @objc private func composeBtnClick(btn:UIButton)
+    {
+        ZYLog(btn)
+    }
+
+// MARK: - 懒加载
+    lazy var composeButton: UIButton = {
+        () -> UIButton
+        in
+        
+        //1.创建按钮
+//        let btn = UIButton()
+//        //2.设置前景图片
+//        //加号图片
+//        btn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
+//        btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
+//        //3.设置背景图片
+//        //橙色背景
+//        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+//        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        
+//        [[UIButton alloc] init];
+//        UIButton()
+        
+//        [[UIButton alloc] initWithFrame: CGRect()];
+//        UIButton(frame: CGRect())
+        
+        //1.创建按钮
+        let btn = UIButton(imageName: "tabbar_compose_icon_add",backgroundImageName: "tabbar_compose_button")
+        
+        //4.监听按钮点击
+        btn.addTarget(self, action: #selector(MainViewController.composeBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+//        //4.调整按钮尺寸
+//        btn.sizeToFit()
+        
+        return btn
+        
+    }()
+    
+    
+// MARK: - 备份 no use
     /**
      guard解决if太多形成的嵌套问题
      */

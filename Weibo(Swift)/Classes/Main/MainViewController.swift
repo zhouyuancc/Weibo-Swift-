@@ -86,6 +86,7 @@ class MainViewController: UITabBarController {
             
             //加号按钮
             addChildViewControllerWithStr("NullViewController", title: "", imageName: "")
+            
             addChildViewControllerWithStr("DiscoverTableViewController", title: "发现", imageName: "tabbar_discover")
             addChildViewControllerWithStr("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
         }
@@ -165,7 +166,7 @@ class MainViewController: UITabBarController {
     // 而相同的情况在OC中是没有问题, 因为OC是动态派发的
     // 而Swift不一样, Swift中所有的东西都在是编译时确定的
     // 如果想让Swift中的方法也支持动态派发, 可以在方法前面加上 @objc
-    // 加上 @objc就代表告诉系统需要动态派发
+    // 加上 @objc就代表告诉系统需要动态派发,不加会报错
     @objc private func composeBtnClick(btn:UIButton)
     {
         ZYLog(btn)
@@ -176,17 +177,6 @@ class MainViewController: UITabBarController {
         () -> UIButton
         in
         
-        //1.创建按钮
-//        let btn = UIButton()
-//        //2.设置前景图片
-//        //加号图片
-//        btn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
-//        btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), forState: UIControlState.Highlighted)
-//        //3.设置背景图片
-//        //橙色背景
-//        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
-//        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
-        
 //        [[UIButton alloc] init];
 //        UIButton()
         
@@ -196,11 +186,8 @@ class MainViewController: UITabBarController {
         //1.创建按钮
         let btn = UIButton(imageName: "tabbar_compose_icon_add",backgroundImageName: "tabbar_compose_button")
         
-        //4.监听按钮点击
+        //2.监听按钮点击
         btn.addTarget(self, action: #selector(MainViewController.composeBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
-//        //4.调整按钮尺寸
-//        btn.sizeToFit()
         
         return btn
         

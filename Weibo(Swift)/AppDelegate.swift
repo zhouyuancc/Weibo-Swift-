@@ -26,15 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        QorumOnlineLogs.enabled = true
 //        QorumLogs.test()
         
-        //1.创建window
-        window = UIWindow(frame:UIScreen.mainScreen().bounds)
-        window?.backgroundColor = UIColor.whiteColor()
-        
-        //2.设置根控制器
-        window?.rootViewController = MainViewController()
-        
-        //3.显示window
-        window?.makeKeyAndVisible()
+//        //1.创建window
+//        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+//        window?.backgroundColor = UIColor.whiteColor()
+//        
+//        //2.设置根控制器
+//        window?.rootViewController = MainViewController()
+//        
+//        //3.显示window
+//        window?.makeKeyAndVisible()
         
         return true
     }

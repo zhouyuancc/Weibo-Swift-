@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Cx-Fj-LpC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--我-->
+        <scene sceneID="fSM-Yj-Zfl">
+            <objects>
+                <tableViewController id="0eT-Nt-Lrf" customClass="ProfileTableViewController" customModule="微博Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3yh-C8-qzb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qMJ-qy-RLX">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qMJ-qy-RLX" id="kp9-J5-XEk">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0eT-Nt-Lrf" id="0rP-dE-kXQ"/>
+                            <outlet property="delegate" destination="0eT-Nt-Lrf" id="BE2-3N-wHu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="我" id="7rm-Hl-NjO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9By-pd-VS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="1805"/>
+        </scene>
+        <!--我-->
+        <scene sceneID="w7X-eZ-U6Y">
+            <objects>
+                <navigationController id="7Cx-Fj-LpC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我" image="tabbar_profile" id="F6w-Z8-xqO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tLv-tB-BeX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0eT-Nt-Lrf" kind="relationship" relationship="rootViewController" id="E45-X1-ihf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9O-fF-cOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="1805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar_profile" width="30" height="30"/>
+    </resources>
+</document>

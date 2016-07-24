@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zLd-Qd-rsx">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--广场-->
+        <scene sceneID="yTD-ee-rNu">
+            <objects>
+                <tableViewController id="JB0-cE-3Pe" customClass="DiscoverTableViewController" customModule="微博Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Clv-oq-PYo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UDe-pk-5GV">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UDe-pk-5GV" id="XRh-4I-y8P">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JB0-cE-3Pe" id="kAl-8Y-1Lf"/>
+                            <outlet property="delegate" destination="JB0-cE-3Pe" id="KCw-eB-QNZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="广场" id="FMt-Bj-LBf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaJ-Di-gXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="981"/>
+        </scene>
+        <!--广场-->
+        <scene sceneID="44a-4y-Y3t">
+            <objects>
+                <navigationController id="zLd-Qd-rsx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="广场" image="tabbar_discover" id="x0p-Mj-4DV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OxY-DX-mBS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JB0-cE-3Pe" kind="relationship" relationship="rootViewController" id="RlC-lz-hy4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tI-E3-J4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="981"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar_discover" width="30" height="30"/>
+    </resources>
+</document>

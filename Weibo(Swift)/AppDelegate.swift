@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        //3.显示window
 //        window?.makeKeyAndVisible()
         
+        //设置所有导航栏UIBarButtonItem的颜色
+        //一般情况下,设置全局性的属性,最好放在AppDelegate中设置,这样可以保证后续所有的操作都是设置之后的操作
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+        
         return true
     }
 

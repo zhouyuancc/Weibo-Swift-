@@ -14,14 +14,20 @@ class MainStoryboardViewController: UITabBarController {
         super.viewDidLoad()
     }
 
+    // MARK: - 生命周期方法
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-    // MARK: - 把按钮添加到tabBar中间
+        // MARK: - 把按钮添加到tabBar中间
+        //1.添加加号按钮
         tabBar.addSubview(composeButton)
         
+        //2.设置加号按钮的位置
+        //保存按钮尺寸
         let rect = composeButton.frame
+        //计算宽度
         let width = tabBar.bounds.width / CGFloat(childViewControllers.count)
+        //设置按钮的位置
         composeButton.frame = CGRect(x: 2 * width, y: 0, width: width,height: rect.height)
     }
     

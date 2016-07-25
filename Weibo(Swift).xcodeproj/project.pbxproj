@@ -30,6 +30,7 @@
 		CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1DF1D423122004C23B5 /* BaseTableViewController.swift */; };
 		CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E11D423389004C23B5 /* VisitorView.swift */; };
 		CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1E31D4233D9004C23B5 /* VisitorView.xib */; };
+		CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		CB87D1DF1D423122004C23B5 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		CB87D1E11D423389004C23B5 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		CB87D1E31D4233D9004C23B5 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
+		CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
+				CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				CB5EBC821D378183009FEE62 /* HomeTableViewController.swift in Sources */,
 				CB5EBC861D3781AC009FEE62 /* ProfileTableViewController.swift in Sources */,
 				CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */,
+				CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */,
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,

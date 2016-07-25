@@ -20,26 +20,46 @@ class HomeTableViewController: BaseTableViewController {
             return
         }
         
+        //2.添加导航条按钮
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_friendattention"), style:UIBarButtonItemStyle.Plain, target: nil, action: nil)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_pop"), style:UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
+        navigationItem.leftBarButtonItem = createBarButtonItem("navigationbar_friendattention")
+        navigationItem.rightBarButtonItem = createBarButtonItem("navigationbar_pop")
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        ZYLog("")
+    /**
+     创建UIBarButtonItem
+     */
+    private func createBarButtonItem(imageName: String) -> UIBarButtonItem
+    {
+        let rightBtn = UIButton()
+        rightBtn.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
+        rightBtn.setImage(UIImage(named: imageName + "_highlighted"), forState: UIControlState.Highlighted)
+        
+        rightBtn.sizeToFit()//设置frame
+        
+        return UIBarButtonItem(customView: rightBtn)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        ZYLog("")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        ZYLog("")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        ZYLog("")
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        ZYLog("")
+//    }
+//    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        ZYLog("")
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        ZYLog("")
+//    }
+//    
+//    override func viewDidDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        ZYLog("")
+//    }
 
 }

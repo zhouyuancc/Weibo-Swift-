@@ -8,6 +8,13 @@
 
 import UIKit
 
+//protocol VisitorViewDelegate: NSObjectProtocol {
+//    
+//    //默认协议中的方法都是必须实现的
+//    func visitorViewDidClickLoginBtn(visitor:VisitorView)
+//    func visitorViewDidClickRegisterBtn(visitor:VisitorView)
+//}
+
 class VisitorView: UIView {
     
     //转盘
@@ -17,9 +24,21 @@ class VisitorView: UIView {
     //文本标签
     @IBOutlet weak var titleLabel: UILabel!
     //注册按钮
-    @IBOutlet weak var rigisterButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     //登录按钮
     @IBOutlet weak var loginButton: UIButton!
+    
+    // MARK: - 外部控制方法
+    //快速创建方法
+    //func == -
+    //class func == +
+    class func visitorView() -> VisitorView{
+        return NSBundle.mainBundle().loadNibNamed("VisitorView", owner: nil, options: nil).last as! VisitorView
+    }
+    
+    //代理
+    //和OC一样代理属性必须使用weak修饰
+//    weak var delegate: VisitorViewDelegate?
     
     //设置访客视图上的数据
     //imageName图标
@@ -43,6 +62,7 @@ class VisitorView: UIView {
         rotationImageView.hidden = true
     }
     
+    // MARK: - 内部控制方法
     //转盘旋转动画
     private func startAnimation() {
         //1.创建动画
@@ -61,12 +81,15 @@ class VisitorView: UIView {
         rotationImageView.layer.addAnimation(anim, forKey: nil)
     }
     
-    //func == -
-    //class func == +
-    class func visitorView() -> VisitorView{
-        return NSBundle.mainBundle().loadNibNamed("VisitorView", owner: nil, options: nil).last as! VisitorView
+    @IBAction func loginBtnClick(sender: AnyObject) {
+        
+        //和OC不一样,Swift中如果简单地调用代理方法,不用判断代理能否响应
+//        delegate?.visitorViewDidClickLoginBtn(self)
     }
-
     
-
+    @IBAction func registerBtnClick(sender: AnyObject) {
+//        delegate?.visitorViewDidClickRegisterBtn(self)
+    }
+    
+    
 }

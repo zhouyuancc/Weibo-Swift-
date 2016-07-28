@@ -14,6 +14,8 @@
 		CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB382D4E1D2E45EC001370D3 /* Assets.xcassets */; };
 		CB382D5D1D2E45EC001370D3 /* Weibo_Swift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382D5C1D2E45EC001370D3 /* Weibo_Swift_Tests.swift */; };
 		CB382D681D2E45EC001370D3 /* Weibo_Swift_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382D671D2E45EC001370D3 /* Weibo_Swift_UITests.swift */; };
+		CB5986951D47005F00DC2147 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5986941D47005F00DC2147 /* Popover.storyboard */; };
+		CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5986961D47053900DC2147 /* ZYPresentationController.swift */; };
 		CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC7F1D378162009FEE62 /* MainViewController.swift */; };
 		CB5EBC821D378183009FEE62 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC811D378183009FEE62 /* HomeTableViewController.swift */; };
 		CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC831D378197009FEE62 /* MessageTableViewController.swift */; };
@@ -31,6 +33,7 @@
 		CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E11D423389004C23B5 /* VisitorView.swift */; };
 		CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1E31D4233D9004C23B5 /* VisitorView.xib */; };
 		CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */; };
+		CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E71D465B59004C23B5 /* TitleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,8 @@
 		CB382D631D2E45EC001370D3 /* Weibo(Swift)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weibo(Swift)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB382D671D2E45EC001370D3 /* Weibo_Swift_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weibo_Swift_UITests.swift; sourceTree = "<group>"; };
 		CB382D691D2E45EC001370D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB5986941D47005F00DC2147 /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
+		CB5986961D47053900DC2147 /* ZYPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPresentationController.swift; sourceTree = "<group>"; };
 		CB5EBC7F1D378162009FEE62 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB5EBC811D378183009FEE62 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		CB5EBC831D378197009FEE62 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +88,7 @@
 		CB87D1E11D423389004C23B5 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		CB87D1E31D4233D9004C23B5 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		CB87D1E71D465B59004C23B5 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,15 @@
 			path = "Weibo(Swift)UITests";
 			sourceTree = "<group>";
 		};
+		CB5986931D47003900DC2147 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				CB5986941D47005F00DC2147 /* Popover.storyboard */,
+				CB5986961D47053900DC2147 /* ZYPresentationController.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
 		CB5EBC771D3780EF009FEE62 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +227,7 @@
 		CB5EBC7A1D3780EF009FEE62 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CB5986931D47003900DC2147 /* Popover */,
 				CB5EBC811D378183009FEE62 /* HomeTableViewController.swift */,
 				CB87D1D11D41E0FA004C23B5 /* Home.storyboard */,
 			);
@@ -255,6 +271,7 @@
 			children = (
 				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
 				CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */,
+				CB87D1E71D465B59004C23B5 /* TitleButton.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -384,6 +401,7 @@
 				CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */,
 				CB87D1D81D41E2AD004C23B5 /* Profile.storyboard in Resources */,
 				CB87D1D61D41E292004C23B5 /* Discover.storyboard in Resources */,
+				CB5986951D47005F00DC2147 /* Popover.storyboard in Resources */,
 				CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,11 +481,13 @@
 				CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */,
 				CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */,
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
+				CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
 				CB87D1DC1D41E571004C23B5 /* MainStoryboardViewController.swift in Sources */,
 				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
+				CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

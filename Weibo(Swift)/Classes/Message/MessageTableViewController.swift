@@ -22,25 +22,6 @@ class MessageTableViewController: BaseTableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        ZYLog("")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        ZYLog("")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        ZYLog("")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        ZYLog("")
-    }
 
 
 }

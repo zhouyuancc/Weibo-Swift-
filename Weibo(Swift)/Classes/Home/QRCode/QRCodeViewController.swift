@@ -125,6 +125,24 @@ class QRCodeViewController: UIViewController {
     
     
     @IBAction func photoBtnClick(sender: AnyObject) {
+        
+        //打开相册
+        //1.判断能否能够打开相册
+        /**
+         case PhotoLibrary 相册
+         case Camera 相机
+         case SavedPhotosAlbum 图片库 //??可删?
+         */
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            return
+        }
+        
+        //2.创建相册控制器
+        let imagePickerVc = UIImagePickerController()
+        imagePickerVc.delegate = self
+        
+        //3.弹出相册控制器
+        presentViewController(imagePickerVc, animated: true, completion: nil)
     }
     
     @IBAction func closeBtnClick(sender: AnyObject) {
@@ -180,6 +198,47 @@ class QRCodeViewController: UIViewController {
     //专门用于保存描边的图层
     private lazy var containerLayer: CALayer = CALayer()
 
+}
+
+/**
+ 注意 : 这俩个代理的顺序错了会报错
+ UIImagePickerControllerDelegate, UINavigationControllerDelegate
+ */
+extension QRCodeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    //选中图片
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        ZYLog(info)
+        
+        //1.取出选中的图片
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else
+        {
+            return
+        }
+        
+        guard let ciImage = CIImage(image: image) else
+        {
+            return
+        }
+        
+        //2.从选中的图片中读取二维码数据
+        //2.1创建一个探测器
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
+        
+        //2.2利用探测器探测数据
+        let results = detector.featuresInImage(ciImage)
+        
+        //2.3取出探测到的数据
+        for result in results {
+            ZYLog((result as! CIQRCodeFeature).messageString)
+        }
+        
+        //注意 : 如果实现了该方法,当选出一张图片时,系统就不会自动关闭相册控制器
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
 }
 
 extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate

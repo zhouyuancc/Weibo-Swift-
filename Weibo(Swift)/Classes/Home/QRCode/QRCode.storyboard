@@ -102,6 +102,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="containerHeightCons" destination="6GF-rz-Vh9" id="fzY-qb-ah6"/>
+                        <outlet property="customContainerView" destination="azv-vv-p4c" id="BYr-3Y-lia"/>
                         <outlet property="customLabel" destination="Uki-5z-bZd" id="YqX-x4-8DA"/>
                         <outlet property="customTabbar" destination="ZGd-SP-Yx7" id="Hu1-TR-jR7"/>
                         <outlet property="scanLineCons" destination="g1L-uj-RJs" id="BC3-4P-o8r"/>

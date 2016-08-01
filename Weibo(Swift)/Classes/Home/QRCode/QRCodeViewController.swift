@@ -11,6 +11,10 @@ import AVFoundation
 
 class QRCodeViewController: UIViewController {
     /**
+     扫描容器
+     */
+    @IBOutlet weak var customContainerView: UIView!
+    /**
      扫描结果文本
      */
     @IBOutlet weak var customLabel: UILabel!
@@ -52,6 +56,9 @@ class QRCodeViewController: UIViewController {
     }
     
     // MARK: - 内部控制方法
+    /**
+     扫描二维码
+     */
     private func scanQRCode()
     {
         //1.判断 输入 能否添加 到会话中
@@ -65,7 +72,7 @@ class QRCodeViewController: UIViewController {
         }
         //能添加
         
-        //3.添加 输入和输出    到会话中
+        //3.添加 输入和输出 到会话中
         session.addInput(input)
         session.addOutput(output)
         
@@ -143,7 +150,28 @@ class QRCodeViewController: UIViewController {
     /**
      输出对象
      */
-    private lazy var output: AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+//    private lazy var output: AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+    private lazy var output: AVCaptureMetadataOutput = {
+        let out = AVCaptureMetadataOutput()
+        //设置 输出对象 解析数据时 感兴趣的范围
+        //默认值(传入的是比例) : CGRect(x: 0, y: 0, width: 1, height: 1)
+        //注意 : 参照 //???
+        
+
+        //1.获取屏幕的frame
+        let viewRect = self.view.frame
+        //2.获取扫描容器的frame
+        let containerRect = self.customContainerView.frame
+        let x = containerRect.origin.y / viewRect.height
+        let y = containerRect.origin.x / viewRect.width
+        let width = containerRect.height / viewRect.height
+        let height = containerRect.width / viewRect.width
+        
+        out.rectOfInterest = CGRect(x: x, y: y, width: width, height: height)
+        
+        return out
+    }()
+    
     /**
      预览图层
      */

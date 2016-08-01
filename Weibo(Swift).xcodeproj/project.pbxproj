@@ -34,6 +34,7 @@
 		CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1E31D4233D9004C23B5 /* VisitorView.xib */; };
 		CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */; };
 		CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E71D465B59004C23B5 /* TitleButton.swift */; };
+		CB88C27C1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */; };
 		CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */; };
 		CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */; };
 		CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */; };
@@ -93,6 +94,7 @@
 		CB87D1E31D4233D9004C23B5 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		CB87D1E71D465B59004C23B5 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeMyBusinessCardViewController.swift; sourceTree = "<group>"; };
 		CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPresentationManager.swift; sourceTree = "<group>"; };
 		CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPopoverViewController.swift; sourceTree = "<group>"; };
 		CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			children = (
 				CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */,
 				CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */,
+				CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			files = (
 				CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */,
 				CB5EBC821D378183009FEE62 /* HomeTableViewController.swift in Sources */,
+				CB88C27C1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift in Sources */,
 				CB5EBC861D3781AC009FEE62 /* ProfileTableViewController.swift in Sources */,
 				CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */,
 				CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */,

@@ -75,16 +75,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-T3-t8l">
+                                <rect key="frame" x="270" y="521" width="60" height="30"/>
+                                <state key="normal" title="我的名片"/>
+                                <connections>
+                                    <segue destination="zCD-ip-ezv" kind="show" id="b0w-2x-IKw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="azv-vv-p4c" firstAttribute="centerX" secondItem="gXZ-X9-K1e" secondAttribute="centerX" id="6Un-Oa-Ktd"/>
                             <constraint firstItem="Uki-5z-bZd" firstAttribute="top" secondItem="azv-vv-p4c" secondAttribute="bottom" constant="20" id="85J-UL-lqC"/>
+                            <constraint firstItem="qQO-T3-t8l" firstAttribute="centerX" secondItem="gXZ-X9-K1e" secondAttribute="centerX" id="CNN-se-E1A"/>
                             <constraint firstItem="ZGd-SP-Yx7" firstAttribute="leading" secondItem="gXZ-X9-K1e" secondAttribute="leading" id="MGN-OO-kRL"/>
                             <constraint firstItem="Uki-5z-bZd" firstAttribute="leading" secondItem="azv-vv-p4c" secondAttribute="leading" id="SsO-O3-Z9x"/>
                             <constraint firstItem="Uki-5z-bZd" firstAttribute="trailing" secondItem="azv-vv-p4c" secondAttribute="trailing" id="TW4-FR-E05"/>
                             <constraint firstItem="azv-vv-p4c" firstAttribute="centerY" secondItem="gXZ-X9-K1e" secondAttribute="centerY" id="V9l-MX-pRi"/>
                             <constraint firstAttribute="trailing" secondItem="ZGd-SP-Yx7" secondAttribute="trailing" id="kM9-fG-P84"/>
+                            <constraint firstItem="ZGd-SP-Yx7" firstAttribute="top" secondItem="qQO-T3-t8l" secondAttribute="bottom" id="spt-bd-hCz"/>
                             <constraint firstItem="OFP-dF-f0i" firstAttribute="top" secondItem="ZGd-SP-Yx7" secondAttribute="bottom" id="wqP-tt-4zf"/>
                         </constraints>
                     </view>
@@ -112,6 +121,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUw-U7-XHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="397" y="400"/>
+        </scene>
+        <!--Code My Business Card View Controller-->
+        <scene sceneID="eaL-Vu-YSb">
+            <objects>
+                <viewController id="zCD-ip-ezv" customClass="QRCodeMyBusinessCardViewController" customModule="微博Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q7o-fH-eYI"/>
+                        <viewControllerLayoutGuide type="bottom" id="zV0-5N-HhR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vSh-Iy-aeo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="od2-P6-haB">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Tam-TU-c6u"/>
+                                    <constraint firstAttribute="width" constant="300" id="uzx-gC-wmx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="od2-P6-haB" firstAttribute="centerX" secondItem="vSh-Iy-aeo" secondAttribute="centerX" id="988-et-zQH"/>
+                            <constraint firstItem="od2-P6-haB" firstAttribute="centerY" secondItem="vSh-Iy-aeo" secondAttribute="centerY" id="mJ3-Sl-SlS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customImageView" destination="od2-P6-haB" id="kc9-OF-t3H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVb-1S-CM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079" y="400"/>
         </scene>
     </scenes>
     <resources>

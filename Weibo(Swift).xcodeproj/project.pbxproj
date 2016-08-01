@@ -34,6 +34,10 @@
 		CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1E31D4233D9004C23B5 /* VisitorView.xib */; };
 		CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */; };
 		CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E71D465B59004C23B5 /* TitleButton.swift */; };
+		CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */; };
+		CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */; };
+		CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */; };
+		CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		CB87D1E31D4233D9004C23B5 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		CB87D1E71D465B59004C23B5 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPresentationManager.swift; sourceTree = "<group>"; };
+		CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPopoverViewController.swift; sourceTree = "<group>"; };
+		CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
+		CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,8 @@
 			children = (
 				CB5986941D47005F00DC2147 /* Popover.storyboard */,
 				CB5986961D47053900DC2147 /* ZYPresentationController.swift */,
+				CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */,
+				CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */,
 			);
 			path = Popover;
 			sourceTree = "<group>";
@@ -227,6 +237,7 @@
 		CB5EBC7A1D3780EF009FEE62 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CBCA5BC21D4B01BC0047DCC5 /* QRCode */,
 				CB5986931D47003900DC2147 /* Popover */,
 				CB5EBC811D378183009FEE62 /* HomeTableViewController.swift */,
 				CB87D1D11D41E0FA004C23B5 /* Home.storyboard */,
@@ -284,6 +295,15 @@
 				CB87D1DD1D422DC6004C23B5 /* Null.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		CBCA5BC21D4B01BC0047DCC5 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */,
+				CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +418,7 @@
 				CB5EBC8C1D391FC1009FEE62 /* MainVCSettings.json in Resources */,
 				CB87D1D41D41E122004C23B5 /* Message.storyboard in Resources */,
 				CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */,
+				CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */,
 				CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */,
 				CB87D1D81D41E2AD004C23B5 /* Profile.storyboard in Resources */,
 				CB87D1D61D41E292004C23B5 /* Discover.storyboard in Resources */,
@@ -478,14 +499,17 @@
 				CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */,
 				CB5EBC821D378183009FEE62 /* HomeTableViewController.swift in Sources */,
 				CB5EBC861D3781AC009FEE62 /* ProfileTableViewController.swift in Sources */,
+				CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */,
 				CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */,
 				CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */,
+				CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */,
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
 				CB87D1DC1D41E571004C23B5 /* MainStoryboardViewController.swift in Sources */,
 				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
+				CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
 				CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,

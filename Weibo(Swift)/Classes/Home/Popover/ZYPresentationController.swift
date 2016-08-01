@@ -4,11 +4,14 @@
 //
 //  Created by ZhouYuan on 16/7/26.
 //  Copyright © 2016年 ZhouYuan. All rights reserved.
-//
+//  弹出的UIPresentationController
 
 import UIKit
 
 class ZYPresentationController: UIPresentationController {
+    
+    //保存菜单的尺寸
+    var presentFrame = CGRectZero
     
     /**
      一.如果{0}转场modal出来的控制器{1}移除原有的控制器
@@ -27,7 +30,7 @@ class ZYPresentationController: UIPresentationController {
     //用于布局转场动画弹出的控件
     override func containerViewWillLayoutSubviews() {
         //设置弹出视图的尺寸
-        presentedView()?.frame = CGRect(x: 100, y: 52, width: 200, height: 200)
+        presentedView()?.frame = presentFrame//CGRect(x: 100, y: 52, width: 200, height: 200)
         
         //添加蒙版
         containerView?.insertSubview(coverButton, atIndex: 0)

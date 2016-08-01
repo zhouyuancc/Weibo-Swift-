@@ -39,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //设置所有导航栏UIBarButtonItem的颜色
         //一般情况下,设置全局性的属性,最好放在AppDelegate中设置,这样可以保证后续所有的操作都是设置之后的操作
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+        //Main.storyboard中设置了tintColor属性,会点击变成橙色
+        //其他storyboard也需要这个功能,所以写在
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
         
         return true
     }

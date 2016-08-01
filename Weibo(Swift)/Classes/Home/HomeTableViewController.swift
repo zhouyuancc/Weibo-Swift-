@@ -23,9 +23,18 @@ class HomeTableViewController: BaseTableViewController {
         //2.初始化导航条
         setupNav()
         
-
+        //3.注册通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.titleChange), name: ZYPresentationManagerDidPresented, object: animatorManager)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.titleChange), name: ZYPresentationManagerDidDismissed, object: animatorManager)
     }
-// MARK: - 内部控制
+    
+    deinit
+    {
+        //移除通知
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    // MARK: - 内部控制
     /**
      添加导航条按钮
      */
@@ -37,18 +46,18 @@ class HomeTableViewController: BaseTableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop", target: self, action: #selector(HomeTableViewController.rightBtnClick))
         
         //2.添加标题按钮
-        let titleButton = TitleButton()
-        titleButton.setTitle("首页", forState: UIControlState.Normal)
-//        覆盖TitleButton的image Normal
-//        titleButton.setImage(UIImage(named: "navigationbar_friendattention"), forState: UIControlState.Normal)
-        titleButton.addTarget(self, action: #selector(HomeTableViewController.titleBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         navigationItem.titleView = titleButton
+    }
+    
+    @objc private func titleChange()
+    {
+        titleButton.selected = !titleButton.selected
     }
     
     @objc private func titleBtnClick(btn:TitleButton)
     {
         //1.修改按钮的状态
-        btn.selected = !btn.selected
+//        btn.selected = !btn.selected
         
         //2.显示菜单
         //2.1创建菜单//从新建的Popover.storyboard中创建UIViewController
@@ -58,7 +67,7 @@ class HomeTableViewController: BaseTableViewController {
             return;
         }
         //自定义转场动画
-        menuView.transitioningDelegate = self
+        menuView.transitioningDelegate = animatorManager
         //设置转场代理
         menuView.modalPresentationStyle = UIModalPresentationStyle.Custom
         
@@ -71,111 +80,36 @@ class HomeTableViewController: BaseTableViewController {
         
     }
     @objc private func rightBtnClick() {
-        ZYLog("")
-    }
-    
-    //定义标记记录当前是否是展现
-    private var isPresent = false
-}
 
-extension HomeTableViewController: UIViewControllerTransitioningDelegate
-{
-    //该方法用于返回一个负责转场动画的对象
-    //可以在该对象中控制弹出视图
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
-    {
-        return ZYPresentationController(presentedViewController: presented, presentingViewController: presenting)
+        //1.创建二维码控制器
+        let sb = UIStoryboard(name: "QRCode", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        //2.弹出二维码控制器
+        presentViewController(vc!, animated: true, completion: nil)
     }
     
-    //该方法用于返回一个负责转场如何 出现 的对象
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    // MARK: - 懒加载
+    private lazy var animatorManager: ZYPresentationManager = {
         
-        isPresent = true
-        return self
-    }
+        //: ZYPresentationManager 明确指定数据类型
+       
+        let manager = ZYPresentationManager()
+        manager.presentFrame = CGRect(x: 100, y: 52, width: 200, height: 200)
+        return manager
+    }()
     
-    //该方法用于返回一个负责转场如何 消失 的对象
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    //标题按钮
+    private lazy var titleButton: TitleButton = {
         
-        isPresent = false
-        return self
-    }
+        let btn = TitleButton()
+        
+        btn.setTitle("首页", forState: UIControlState.Normal)
+        //        覆盖TitleButton的image Normal
+        //        titleButton.setImage(UIImage(named: "navigationbar_friendattention"), forState: UIControlState.Normal)
+        btn.addTarget(self, action: #selector(HomeTableViewController.titleBtnClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        return btn
+    }()
 
-}
-
-extension HomeTableViewController:UIViewControllerAnimatedTransitioning
-{
-    //告诉系统展示和消失的动画时长
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
-    {
-        return 0.5
-    }
-    
-    /**
-     用于管理modal展示和消失,无论是 展示或消失 都会调用该方法
-     注意点 : 只要实现了这个代理方法,系统就不会再有默认的动画了.
-     即: 默认的modal从下至上的移动,系统不再帮我们添加.
-         1.所有的动画操作都需要我们自己实现
-         2.需要展示的视图 也需要我们自己添加到容器视图(containerView)上
-     */
-    //transitionContext : 所有动画需要的东西都保存在上下文中.
-    //即: 可以通过transitionContext获取需要的数据
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning)
-    {
-        //判断当前是展示还是消失
-        if isPresent {
-            
-            //展示
-            //1.获取需要弹出的视图
-//            let toVc = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-//            
-//            let fromVc = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-//            ZYLog(toVc)
-//            ZYLog(fromVc)
-            
-            //通过ToViewKey取出的就是toVC对应的view
-            guard let toView = transitionContext.viewForKey(UITransitionContextToViewKey) else{
-                return
-            }
-            
-            //2.将需要弹出的视图添加到containerView上
-            transitionContext.containerView()?.addSubview(toView)
-            
-            //3.执行动画
-            toView.transform = CGAffineTransformMakeScale(1.0, 0.0)
-            //设置锚点
-            toView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
-
-            UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-                () -> Void in
-                //动画恢复
-                toView.transform = CGAffineTransformIdentity
-            }){
-                (_) -> Void in
-                //注意 : 自定义转场动画,在执行完动画之后一定要告诉系统--动画执行完毕了
-                transitionContext.completeTransition(true)
-            }
-            
-        }
-        else
-        {
-            //消失
-            //1.拿到需要消失的视图
-            guard let fromView  = transitionContext.viewForKey(UITransitionContextFromViewKey) else{
-                return
-            }
-            
-            //2.执行动画让视图消失
-            UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-                
-                //突然消失的原因 : CGFloat不准确,导致无法执行动画
-                //解决方法 : 将CGFloat的值设置为一个很小的值即可
-                fromView.transform = CGAffineTransformMakeScale(1.0, 0.00001)
-                
-                }, completion: { (_) in
-                    transitionContext.completeTransition(true)
-            })
-        }
-    }
 }
 

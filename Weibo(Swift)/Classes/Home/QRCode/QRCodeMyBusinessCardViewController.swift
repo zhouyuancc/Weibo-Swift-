@@ -14,28 +14,46 @@ class QRCodeMyBusinessCardViewController: UIViewController {
      二维码容器
      */
     @IBOutlet weak var customImageView: UIImageView!
+    /**
+     输入 需要生成二维码的网址
+     */
+    @IBOutlet weak var customTextLabel: UITextField!
+    /**
+     生成二维码的点击事件
+     */
+    @IBAction func customGenerateBtn() {
+        //生成二维码
+        generateQRCode(customTextLabel.text)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         //生成二维码
-        generateQRCode()
+        generateQRCode("")
     }
 
     /**
      生成二维码
      */
-    func generateQRCode()
+    func generateQRCode(text:String?)
     {
         //1.创建滤镜
-        let filter = CIFilter(name: "CIQRCodeGenerator")
+        let filter = CIFilter(name: "CIQRCodeGenerator")//CIQRCodeGenerator生成二维码
         
         //2.还原滤镜默认属性
         filter?.setDefaults()
         
         //3.设置需要生成二维码的数据到滤镜中
+        /**
+         (url ?? "")
+         ?? : 判断前面参数url是否为nil
+         为nil -> "";不为nil -> title
+         若为nil : 返回??后面的数据"";不为nil,不执行??后的语句,title ?? ""相当于title
+         */
+        let url = (text ?? "zhouyuan")
         //OC中,要求设置的是一个 二进制数据
-        filter?.setValue("zhouyuan".dataUsingEncoding(NSUTF8StringEncoding), forKeyPath: "InputMessage")//InputMessage固定
+        //字符串转二进制"zhouyuan".dataUsingEncoding(NSUTF8StringEncoding)
+        filter?.setValue(url.dataUsingEncoding(NSUTF8StringEncoding), forKeyPath: "InputMessage")//InputMessage固定
         
         //4.从滤镜中取出,是一个模糊图片,生成高清二维码图片
         guard let ciImage = filter?.outputImage else{
@@ -43,13 +61,13 @@ class QRCodeMyBusinessCardViewController: UIViewController {
         }
         
 //        customImageView.image = UIImage(CIImage: ciImage)
-        customImageView.image = createNonInterpolatedUIImageFormCIImage(ciImage, size: 500)//??300
+        customImageView.image = createNonInterpolatedUIImageFormCIImage(ciImage, size: 500)//500 : 生成高清图片的宽高 //300 : customImageView宽高
     }
     
     /**
      生成高清二维码
      image : 需要生成的原始图片
-     size  : 生成二维码的宽高
+     size  : 生成的高清二维码的宽高
      //polated插入\Inter插入
      */
     private func createNonInterpolatedUIImageFormCIImage(image: CIImage,size: CGFloat) -> UIImage
@@ -77,3 +95,4 @@ class QRCodeMyBusinessCardViewController: UIViewController {
     }
 
 }
+

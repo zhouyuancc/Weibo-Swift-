@@ -45,14 +45,39 @@ class QRCodeViewController: UIViewController {
         customTabbar.delegate = self
         
         //3.开始扫描二维码
-        scanQRCode()
+//        scanQRCode()
+//        drawUIBezierPath()
         
+    }
+    
+    /**
+     绘制矩形
+     */
+    private func drawUIBezierPath() {
+        
+        //1.创建图层,用于保存绘制的矩形
+        let layer = CAShapeLayer()
+        layer.lineWidth = 2
+        //边框的颜色
+        layer.strokeColor = UIColor.greenColor().CGColor
+        //矩形 内部 的填充颜色
+        layer.fillColor = UIColor.clearColor().CGColor
+        
+        //2.创建UIBezierPath,绘制矩形
+        let path = UIBezierPath(rect: CGRect(x: 100, y: 100, width: 200, height: 200))
+        layer.path = path.CGPath
+        
+        //3.将 用于保存矩形的图层 添加到 界面上
+        view.layer.addSublayer(layer)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         startAnimation()
+        
+        //3.开始扫描二维码
+        scanQRCode()
     }
     
     // MARK: - 内部控制方法
@@ -129,9 +154,9 @@ class QRCodeViewController: UIViewController {
         //打开相册
         //1.判断能否能够打开相册
         /**
-         case PhotoLibrary 相册
+         case PhotoLibrary 相册 //可删
          case Camera 相机
-         case SavedPhotosAlbum 图片库 //??可删?
+         case SavedPhotosAlbum 图片库 //不可删
          */
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             return
@@ -173,18 +198,37 @@ class QRCodeViewController: UIViewController {
         let out = AVCaptureMetadataOutput()
         //设置 输出对象 解析数据时 感兴趣的范围
         //默认值(传入的是比例) : CGRect(x: 0, y: 0, width: 1, height: 1)
-        //注意 : 参照 //???
         
+        //注意 : 以 屏幕逆时针旋转至横屏 的左上角为原点//而其它的一般是左上角为原点,右x,下y
 
         //1.获取屏幕的frame
         let viewRect = self.view.frame
         //2.获取扫描容器的frame
         let containerRect = self.customContainerView.frame
-        let x = containerRect.origin.y / viewRect.height
-        let y = containerRect.origin.x / viewRect.width
-        let width = containerRect.height / viewRect.height
-        let height = containerRect.width / viewRect.width
         
+        /**
+         x,y互换计算
+         */
+        let x = containerRect.origin.y / viewRect.height//一般原点下:容器的x/屏幕整个x(屏幕宽)
+        let y = containerRect.origin.x / viewRect.width//一般原点下:容器的y/屏幕整个y(屏幕高)
+        let width = containerRect.height / viewRect.height//一般原点下:容器的宽/屏幕整个x(屏幕宽)
+        let height = containerRect.width / viewRect.width//一般原点下:容器的高/屏幕整个y(屏幕高)
+//        ZYLog(viewRect.height)//667.0
+//        ZYLog(viewRect.width)//375.0
+        
+//        ZYLog(containerRect.origin.y)//150.0//有问题//183.5
+//        ZYLog(containerRect.origin.x)//150.0//37.5
+//        ZYLog(x)
+//        ZYLog(y)
+//        ZYLog(width)
+//        ZYLog(height)
+        
+//        output[221]:0.275112443778111
+//        output[222]:0.1
+//        output[223]:0.449775112443778
+//        output[224]:0.8
+        
+        //能扫描二维码的矩形位置
         out.rectOfInterest = CGRect(x: x, y: y, width: width, height: height)
         
         return out
@@ -209,7 +253,7 @@ extension QRCodeViewController: UIImagePickerControllerDelegate, UINavigationCon
     //选中图片
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
-        ZYLog(info)
+//        ZYLog(info)
         
         //1.取出选中的图片
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else
@@ -224,6 +268,7 @@ extension QRCodeViewController: UIImagePickerControllerDelegate, UINavigationCon
         
         //2.从选中的图片中读取二维码数据
         //2.1创建一个探测器
+        //也可以做人脸识别CIDetectorTypeFace
         let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
         
         //2.2利用探测器探测数据
@@ -249,8 +294,11 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
     {
         //1.显示结果
+//        ZYLog(metadataObjects.last?.stringValue)
         customLabel.text = metadataObjects.last?.stringValue
         
+        //清空containerLayer.sublayers(用于保存矩形的图层的子layer)
+        //放在这里 : 1.防止绘制出多个矩形 2.防止把要扫描的二维码移走后,绘制的矩形仍在
         clearLayers()
         
         //2.拿到扫描到的数据
@@ -259,12 +307,14 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate
         }
         
         //转换前 : corners { 0.3,0.7 0.5,0.7 0.5,0.4 0.3,0.4 }
-        // 转换后: corners { 40.0,230.3 30.9,403.9 216.5,416.3 227.1,244.2 }
+        //转换后 : corners { 40.0,230.3 30.9,403.9 216.5,416.3 227.1,244.2 }
         //通过预览图层将corners值转化为我们能识别的类型
         let objc = previewLayer.transformedMetadataObjectForMetadataObject(metadata)
 
 //        ZYLog((objc as! AVMetadataMachineReadableCodeObject).corners)
-        
+        guard (objc as? AVMetadataMachineReadableCodeObject) != nil else{
+            return
+        }
         //3.对扫描到的二维码进行描边
         drawLines(objc as! AVMetadataMachineReadableCodeObject)
     }
@@ -276,7 +326,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate
         //0.安全检验
         guard let array = objc.corners else{
             return
-        }
+        }//[{40.0,230.3 30.9,403.9 216.5,416.3 227.1,244.2},{},{},{}]
         
         //1.创建图层,用于保存绘制的矩形
         let layer = CAShapeLayer()
@@ -291,16 +341,21 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate
         var point = CGPointZero
         var index = 0
         
-        //将字典转换为点//??
-        CGPointMakeWithDictionaryRepresentation((array[index++] as! CFDictionary), &point)
+        //把字典中的array[index]的值,赋值给point
+        CGPointMakeWithDictionaryRepresentation((array[index] as! CFDictionary), &point)
+        index += 1
         
         //2.1将起点移动到某一个点
-        path.moveToPoint(point)
+        path.moveToPoint(point)//起点
         
         //2.2连接其他线段
-        while index < array.count {
-            CGPointMakeWithDictionaryRepresentation((array[index++] as! CFDictionary), &point)
-            path.addLineToPoint(point)
+        while index < array.count//index = 1//array.count = 4
+        {
+            //index++ : 先计算再++
+            CGPointMakeWithDictionaryRepresentation((array[index] as! CFDictionary), &point)
+            index += 1
+            
+            path.addLineToPoint(point)//画线点//矩形其他三个点
         }
         
         //2.3关闭路径
@@ -334,7 +389,7 @@ extension QRCodeViewController: UITabBarDelegate
         //根据当前选中的按钮重新设置二维码容器的高度
         containerHeightCons.constant = (item.tag == 1) ? 150 : 300
         
-        //强制刷新
+        //强制刷新//重新布局
         view.layoutIfNeeded()
         
         //移除动画

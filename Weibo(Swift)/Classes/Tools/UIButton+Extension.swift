@@ -29,18 +29,24 @@ extension UIButton
      
      一般情况下,如果想给系统的类提供一个快速创建的方法,就自定义一个便利构造方法
      */
-    convenience init(imageName:String,backgroundImageName:String)//便利构造方法
+    convenience init(imageName:String?,backgroundImageName:String?)//便利构造方法
     {
         self.init()//必须写//指定构造方法
         
         //2.设置前景图片
-        //加号图片
-        setImage(UIImage(named: imageName), forState: UIControlState.Normal)
-        setImage(UIImage(named: imageName + "_highlighted"), forState: UIControlState.Highlighted)
+        if let name = imageName {
+            
+            //加号图片
+            setImage(UIImage(named: name), forState: UIControlState.Normal)
+            setImage(UIImage(named: name + "_highlighted"), forState: UIControlState.Highlighted)
+        }
         //3.设置背景图片
-        //橙色背景
-        setBackgroundImage(UIImage(named: backgroundImageName), forState: UIControlState.Normal)
-        setBackgroundImage(UIImage(named: backgroundImageName + "_highlighted"), forState: UIControlState.Highlighted)
+        if let backgroundName = backgroundImageName {
+            
+            //橙色背景
+            setBackgroundImage(UIImage(named: backgroundName), forState: UIControlState.Normal)
+            setBackgroundImage(UIImage(named: backgroundName + "_highlighted"), forState: UIControlState.Highlighted)
+        }
         
         //4.调整按钮尺寸
         sizeToFit()

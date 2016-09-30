@@ -16,7 +16,7 @@ class BaseTableViewController: UITableViewController {
     
     //访客视图
     var visitorView: VisitorView?
-    var isLogin = true
+    var isLogin = false
     
     override func loadView() {
         
@@ -54,7 +54,12 @@ class BaseTableViewController: UITableViewController {
     //监听登录按钮点击
     @objc private func loginBtnClick(btn: UIButton)
     {
+        //1.创建登录界面
+        let sb = UIStoryboard(name: "OAuth", bundle: nil)
+        let vc = sb.instantiateInitialViewController()!
         
+        //2.弹出登陆界面
+        presentViewController(vc, animated: true, completion: nil)
     }
 
 

@@ -8,11 +8,6 @@
 
 import UIKit
 
-//自定义转场展示
-let ZYPresentationManagerDidPresented = "ZYPresentationManagerDidPresented"
-//自定义转场消失
-let ZYPresentationManagerDidDismissed = "ZYPresentationManagerDidDismissed"
-
 class ZYPresentationManager: NSObject,UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning {
 
     //定义标记记录当前是否是展示状态

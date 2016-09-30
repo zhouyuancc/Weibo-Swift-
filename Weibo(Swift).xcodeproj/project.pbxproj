@@ -23,6 +23,16 @@
 		CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC871D3781C1009FEE62 /* DiscoverTableViewController.swift */; };
 		CB5EBC8C1D391FC1009FEE62 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = CB5EBC8A1D391FC1009FEE62 /* MainVCSettings.json */; };
 		CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */; };
+		CB7EE59C1D61F38800C91AC8 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */; };
+		CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */; };
+		CB7EE5A41D61FCCE00C91AC8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A31D61FCCE00C91AC8 /* Common.swift */; };
+		CB7EE5A61D6208C200C91AC8 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A51D6208C200C91AC8 /* NetworkTools.swift */; };
+		CB7EE5A81D620A5E00C91AC8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A71D620A5E00C91AC8 /* String+Extension.swift */; };
+		CB7EE5AA1D620F2E00C91AC8 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A91D620F2E00C91AC8 /* UserAccount.swift */; };
+		CB7EE5AD1D65905600C91AC8 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7EE5AC1D65905600C91AC8 /* Welcome.storyboard */; };
+		CB7EE5AF1D65907300C91AC8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5AE1D65907300C91AC8 /* WelcomeViewController.swift */; };
+		CB7EE5B11D65989500C91AC8 /* Newfeature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7EE5B01D65989500C91AC8 /* Newfeature.storyboard */; };
+		CB7EE5B31D6598B200C91AC8 /* NewfeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5B21D6598B200C91AC8 /* NewfeatureViewController.swift */; };
 		CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1D11D41E0FA004C23B5 /* Home.storyboard */; };
 		CB87D1D41D41E122004C23B5 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1D31D41E122004C23B5 /* Message.storyboard */; };
 		CB87D1D61D41E292004C23B5 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB87D1D51D41E292004C23B5 /* Discover.storyboard */; };
@@ -83,6 +93,16 @@
 		CB5EBC871D3781C1009FEE62 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		CB5EBC8A1D391FC1009FEE62 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
+		CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		CB7EE5A31D61FCCE00C91AC8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		CB7EE5A51D6208C200C91AC8 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		CB7EE5A71D620A5E00C91AC8 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CB7EE5A91D620F2E00C91AC8 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		CB7EE5AC1D65905600C91AC8 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		CB7EE5AE1D65907300C91AC8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CB7EE5B01D65989500C91AC8 /* Newfeature.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Newfeature.storyboard; sourceTree = "<group>"; };
+		CB7EE5B21D6598B200C91AC8 /* NewfeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureViewController.swift; sourceTree = "<group>"; };
 		CB87D1D11D41E0FA004C23B5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = "Weibo(Swift)/Classes/Home/Home.storyboard"; sourceTree = SOURCE_ROOT; };
 		CB87D1D31D41E122004C23B5 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Message.storyboard; path = "Weibo(Swift)/Classes/Message/Message.storyboard"; sourceTree = SOURCE_ROOT; };
 		CB87D1D51D41E292004C23B5 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Discover.storyboard; path = "Weibo(Swift)/Classes/Discover/Discover.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -209,6 +229,8 @@
 		CB5EBC771D3780EF009FEE62 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CB7EE5AB1D64B5F600C91AC8 /* Newfeature */,
+				CBCB32BC1D52F1B20082E303 /* OAuth */,
 				CB5EBC781D3780EF009FEE62 /* Compose */,
 				CB5EBC791D3780EF009FEE62 /* Discover */,
 				CB5EBC7A1D3780EF009FEE62 /* Home */,
@@ -285,6 +307,9 @@
 				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
 				CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */,
 				CB87D1E71D465B59004C23B5 /* TitleButton.swift */,
+				CB7EE5A31D61FCCE00C91AC8 /* Common.swift */,
+				CB7EE5A51D6208C200C91AC8 /* NetworkTools.swift */,
+				CB7EE5A71D620A5E00C91AC8 /* String+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -299,6 +324,17 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		CB7EE5AB1D64B5F600C91AC8 /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				CB7EE5AC1D65905600C91AC8 /* Welcome.storyboard */,
+				CB7EE5AE1D65907300C91AC8 /* WelcomeViewController.swift */,
+				CB7EE5B01D65989500C91AC8 /* Newfeature.storyboard */,
+				CB7EE5B21D6598B200C91AC8 /* NewfeatureViewController.swift */,
+			);
+			path = Newfeature;
+			sourceTree = "<group>";
+		};
 		CBCA5BC21D4B01BC0047DCC5 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +343,16 @@
 				CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		CBCB32BC1D52F1B20082E303 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */,
+				CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */,
+				CB7EE5A91D620F2E00C91AC8 /* UserAccount.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,10 +466,13 @@
 				CB87D1DE1D422DC6004C23B5 /* Null.storyboard in Resources */,
 				CB5EBC8C1D391FC1009FEE62 /* MainVCSettings.json in Resources */,
 				CB87D1D41D41E122004C23B5 /* Message.storyboard in Resources */,
+				CB7EE59C1D61F38800C91AC8 /* OAuth.storyboard in Resources */,
+				CB7EE5AD1D65905600C91AC8 /* Welcome.storyboard in Resources */,
 				CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */,
 				CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */,
 				CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */,
 				CB87D1D81D41E2AD004C23B5 /* Profile.storyboard in Resources */,
+				CB7EE5B11D65989500C91AC8 /* Newfeature.storyboard in Resources */,
 				CB87D1D61D41E292004C23B5 /* Discover.storyboard in Resources */,
 				CB5986951D47005F00DC2147 /* Popover.storyboard in Resources */,
 				CB87D1E41D4233D9004C23B5 /* VisitorView.xib in Resources */,
@@ -506,14 +555,21 @@
 				CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */,
 				CB87D1E01D423122004C23B5 /* BaseTableViewController.swift in Sources */,
 				CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */,
+				CB7EE5AA1D620F2E00C91AC8 /* UserAccount.swift in Sources */,
 				CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */,
+				CB7EE5AF1D65907300C91AC8 /* WelcomeViewController.swift in Sources */,
+				CB7EE5A41D61FCCE00C91AC8 /* Common.swift in Sources */,
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
+				CB7EE5A81D620A5E00C91AC8 /* String+Extension.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
+				CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */,
+				CB7EE5A61D6208C200C91AC8 /* NetworkTools.swift in Sources */,
 				CB87D1DC1D41E571004C23B5 /* MainStoryboardViewController.swift in Sources */,
 				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
 				CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */,
+				CB7EE5B31D6598B200C91AC8 /* NewfeatureViewController.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
 				CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,

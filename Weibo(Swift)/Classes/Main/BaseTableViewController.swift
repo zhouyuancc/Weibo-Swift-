@@ -16,7 +16,9 @@ class BaseTableViewController: UITableViewController {
     
     //访客视图
     var visitorView: VisitorView?
-    var isLogin = false
+    
+    //定义标记记录用户登录状态
+    var isLogin = UserAccount.isLogin()
     
     override func loadView() {
         

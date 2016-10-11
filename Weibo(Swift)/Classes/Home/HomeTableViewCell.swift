@@ -12,16 +12,7 @@ import SDWebImage
 class HomeTableViewCell: UITableViewCell {
     
     //配图视图
-    @IBOutlet weak var pictureCollectionView: UICollectionView!
-    
-    //配图布局对象
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
-    //配图高度约束
-    @IBOutlet weak var pictureCollectionViewHeightCons: NSLayoutConstraint!
-    
-    //配图宽度约束
-    @IBOutlet weak var pictureCollectionViewWidthCons: NSLayoutConstraint!
+    @IBOutlet weak var pictureCollectionView: ZYPictureView!
     
     //头像
     @IBOutlet weak var iconImageView: UIImageView!
@@ -46,7 +37,13 @@ class HomeTableViewCell: UITableViewCell {
     
     //底部视图
     @IBOutlet weak var footerView: UIView!
-        
+    
+    //转发正文
+    @IBOutlet weak var forwardLabel: UILabel!
+    
+    //picture Collection View与footerView间的约束
+    @IBOutlet weak var picCollectionViewCellBottom: NSLayoutConstraint!
+    
     //模型数据
     var viewModel: StatusViewModel?
     {
@@ -79,22 +76,27 @@ class HomeTableViewCell: UITableViewCell {
             //7.设置正文
             contentLabel.text = viewModel?.status.text
             
-            //8.更新配图
-            pictureCollectionView.reloadData()
+            //8.1更新配图
+            pictureCollectionView.viewModel = viewModel
             
-            //9.更新配图尺寸 
-            //计算cell和collectionView的尺寸
-            let (itemSize,clvSize) = calculateSize()
-            
-            //9.1更新cell的尺寸
-            if itemSize != CGSizeZero
+            //8.2更新picture Collection View与footerView间的约束
+            //转发,没有图片时,设置CollectionViewCell与下面的边距为0
+            if viewModel?.thumbnail_pic?.count == 0 {
+                
+                picCollectionViewCellBottom.constant = 0
+            }
+            else
             {
-                flowLayout.itemSize = itemSize
+                picCollectionViewCellBottom.constant = 10
             }
             
-            //9.2更新collectionView尺寸
-            pictureCollectionViewHeightCons.constant = clvSize.height
-            pictureCollectionViewWidthCons.constant = clvSize.width
+            
+            //10.转发微博
+            if let text = viewModel?.forwardText
+            {
+                forwardLabel.text = text
+                forwardLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 2 * 10
+            }
             
         }
     }
@@ -118,90 +120,6 @@ class HomeTableViewCell: UITableViewCell {
         //3.返回底部视图最大的Y
         return CGRectGetMaxY(footerView.frame)
     }
-    
-    // MARK: - 内部控制方法
-    //计算cell和collectionView的尺寸
-    private func calculateSize() -> (CGSize, CGSize)
-    {
-        /**
-         配图 张数
-         0 : cell = zero , collectionView = zero
-         1 : cell = image.size , collectionView = image.size
-         4 : cell = {90 , 90} , collectionView = {2 * w + m , 2 * h + m}
-         其他 : cell = {90 , 90}
-         */
-        let count = viewModel?.thumbnail_pic?.count ?? 0
-        
-        //没有配图
-        if count == 0 {
-            return (CGSizeZero, CGSizeZero)
-        }
-        
-        //一张配图
-        if count == 1
-        {
-            let key = viewModel?.thumbnail_pic?.first?.absoluteString
-            
-            //从缓存中获取已经下载好的图片,其中key是图片的url
-            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
-            
-            return (image.size, image.size)
-        }
-        
-        let imageWidth: CGFloat = 90
-        let imageHeight: CGFloat = 90
-        let imageMargin: CGFloat = 10
-        
-        var col: Int
-        var row: Int
-        
-        //四张配图
-        if count == 4
-        {
-            col = 2
-            row = col
-        }
-        else
-        {
-            //其他张配图
-            col = 3
-            row = (count - 1) / 3 + 1
-        }
-        
-        //宽度 = 图片的宽度 * 列数 + (列数 - 1) * 间隙
-        let width = imageWidth * CGFloat(col) + CGFloat(col - 1) * imageMargin
-        //高度 = 图片的高度 * 行数 + (行数 - 1) * 间隙
-        let height = imageHeight * CGFloat(row) + CGFloat(row - 1) * imageMargin
-        
-        return (CGSize(width: imageWidth, height: imageHeight),CGSize(width: width, height: height))
-    }
+
 }
 
-extension HomeTableViewCell: UICollectionViewDataSource
-{
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return viewModel?.thumbnail_pic?.count ?? 0
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("pictureCell", forIndexPath: indexPath) as! HomePictureCell
-        
-        cell.url = viewModel?.thumbnail_pic![indexPath.item]
-        
-        return cell
-    }
-}
-
-class HomePictureCell: UICollectionViewCell {
-    var url: NSURL?
-    {
-        didSet
-        {
-            customIconImageView.sd_setImageWithURL(url)
-        }
-    }
-    
-    @IBOutlet weak var customIconImageView: UIImageView!
-}

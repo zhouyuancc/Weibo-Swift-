@@ -154,7 +154,7 @@
                   moduleName = "&#x5fae;&#x535a;Swift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Zhou/Desktop/%E5%B7%A5%E4%BD%9C%E7%BB%83%E4%B9%A0/22-Swift/Weibo(Swift)/Weibo(Swift)/Classes/OAuth/OAuthViewController.swift"
-                  timestampString = "497268408.707049"
+                  timestampString = "497882280.049307"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "125"
@@ -169,7 +169,7 @@
                   moduleName = "&#x5fae;&#x535a;Swift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Zhou/Desktop/%E5%B7%A5%E4%BD%9C%E7%BB%83%E4%B9%A0/22-Swift/Weibo(Swift)/Weibo(Swift)/Classes/OAuth/OAuthViewController.swift"
-                  timestampString = "497268408.707282"
+                  timestampString = "497882280.049568"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -250,13 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weibo(Swift)/Classes/Home/HomeTableViewCell.swift"
-            timestampString = "497271850.616038"
+            timestampString = "497882278.887097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "HomePictureCell"
-            landmarkType = "3">
+            startingLineNumber = "238"
+            endingLineNumber = "238">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

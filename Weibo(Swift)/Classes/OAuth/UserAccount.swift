@@ -90,7 +90,7 @@ class UserAccount: NSObject, NSCoding {
     {
         //1.判断是否已经加载过了
         if UserAccount.account != nil {
-            ZYLog("已经有加载过")
+//            ZYLog("已经有加载过")
             //直接返回
             return UserAccount.account
         }

@@ -23,3 +23,8 @@ let ZYPresentationManagerDidPresented = "ZYPresentationManagerDidPresented"
 let ZYPresentationManagerDidDismissed = "ZYPresentationManagerDidDismissed"
 /// 切换根控制器的通知
 let ZYSwitchRootViewController =  "ZYSwitchRootViewController"
+
+/// 显示图片浏览器通知
+let ZYShowPhotoBrowserController = "ZYShowPhotoBrowserController"
+
+

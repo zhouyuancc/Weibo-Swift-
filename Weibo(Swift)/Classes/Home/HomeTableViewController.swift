@@ -13,14 +13,8 @@ import SDWebImage
 class HomeTableViewController: BaseTableViewController {
 
     //保存所有微博数据
-    var statuses: [StatusViewModel]?
-    {
-        didSet
-        {
-            tableView.reloadData()
-        }
-    }
-    
+    var statusListModel: StatusListModel = StatusListModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,11 +31,22 @@ class HomeTableViewController: BaseTableViewController {
         //3.注册通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.titleChange), name: ZYPresentationManagerDidPresented, object: animatorManager)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.titleChange), name: ZYPresentationManagerDidDismissed, object: animatorManager)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.showBrowser(_:)), name: ZYShowPhotoBrowserController, object: nil)
+        
         
         //4.获取微博数据
         loadData()
         
+        //5.设置tableView
         tableView.estimatedRowHeight = 400
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        //6.初始化刷新
+        refreshControl = ZYRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(HomeTableViewController.loadData), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl?.beginRefreshing()
+        
+        navigationController?.navigationBar.insertSubview(tipLabel, atIndex: 0)
     }
     
     deinit
@@ -51,95 +56,52 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     // MARK: - 内部控制
-    private func loadData() {
+    @objc private func loadData() {
         
-        NetworkTools.shareInstance.loadStatuses { (array, error) in
+        statusListModel.loadData(lastStatus) { (models, error) in
             
             //1.安全校验
             if error != nil
             {
-                SVProgressHUD.showErrorWithStatus("获取微博数据失败", maskType: SVProgressHUDMaskType.Black)
+                SVProgressHUD.showErrorWithStatus("获取微博数失败", maskType: SVProgressHUDMaskType.Black)
                 return
             }
             
-            guard let arr = array else{
-                
-                //数组是空的
-                return
-            }
+            //2.关闭菊花
+            self.refreshControl?.endRefreshing()
             
-//            ZYLog(arr)
+            //3.显示刷新提醒
+            self.showRefreshStautus(models!.count)
             
-            //2.将字典数组转换为模型数组
-            //2.1 创建一个 模型 数组
-            var models = [StatusViewModel]()
-            
-            for dict in arr{
-                
-                //2.2 dict转模型(dict字典子级字典,转User模型)
-                let status = Status(dict: dict)
-                
-                //2.3 通过字典模型 转 view展示需要的模型
-                let viewModel = StatusViewModel(status: status)
-                
-//                ZYLog(viewModel)
-                
-                //2.4 将 view模型 添加到 数组
-                models.append(viewModel)
-            }
-            
-            //3.保存微博数据
-            //注意:显示图片依赖于配图,所以只好下载好了图片才能刷新表格
-//            self.statuses = models
-            
-            //4.缓存微博所有配图
-            self.cachesImages(models)
+            //4.刷新表格
+            self.tableView.reloadData()
         }
     }
     
-    //缓存微博配图
-    private func cachesImages(viewModels: [StatusViewModel])
+    ///显示刷新提醒
+    private func showRefreshStautus(count: Int)
     {
-        //0.创建一个组
-        let group = dispatch_group_create()
+        //1.设置提醒文本
+        tipLabel.text = (count == 0) ? "没有更多数据" : "刷新到\(count)数据"
+        tipLabel.hidden = false
         
-        for viewModel in viewModels {
-            
-            //1.从模型中取出配图数组
-            guard let picurls = viewModel.thumbnail_pic else
-            {
-                //如果当前微博没有配图就跳过,继续下载下一个模型的
-                //跳过
-                continue
-            }
-            
-            //2.遍历配图数组下载图片
-            for url in picurls {
+        //2.执行动画
+        UIView.animateWithDuration(1.0, animations: { 
+            self.tipLabel.transform = CGAffineTransformMakeTranslation(0, 44)
+            }) { (_) in
                 
-                //将 当前的下载操作 添加到 组中
-                dispatch_group_enter(group)
-                
-                //3.利用SDWebImage下载图片
-                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, error, _, _, _) in
+                UIView.animateWithDuration(1.0, delay: 2.0, options: UIViewAnimationOptions(rawValue: 0), animations: { 
                     
-//                    ZYLog("图片下载完成")
+                        self.tipLabel.transform = CGAffineTransformIdentity
                     
-                    //将 当前下载操作 从组中 移除
-                    dispatch_group_leave(group)
+                    }, completion: { (_) in
+                        
+                        self.tipLabel.hidden = true
                 })
-            }
         }
-        
-        //监听下载操作
-        dispatch_group_notify(group, dispatch_get_main_queue()) { 
-            
-//            ZYLog("全部下载完成")
-            self.statuses = viewModels
-        }
-        
     }
-    
-    
+
+
     /**
      添加导航条按钮
      */
@@ -152,6 +114,26 @@ class HomeTableViewController: BaseTableViewController {
         
         //2.添加标题按钮
         navigationItem.titleView = titleButton
+    }
+    
+    ///监听图片点击通知
+    @objc private func showBrowser(notice: NSNotification)
+    {
+        //注意: 但凡是通过网络或者通知获取到的数据, 都需要进行安全校验
+        guard let pictures = notice.userInfo!["bmiddle_pic"] as? [NSURL] else{
+            
+            SVProgressHUD.showErrorWithStatus("没有图片", maskType: SVProgressHUDMaskType.Black)
+            return
+        }
+        guard let index = notice.userInfo!["indexPath"] as? NSIndexPath else{
+            
+            SVProgressHUD.showErrorWithStatus("没有索引", maskType: SVProgressHUDMaskType.Black)
+            return
+        }
+        
+        //弹出图片浏览器, 将所有图片和当前点击的索引传递给浏览器
+        let vc = ZYBrowserViewController(bmiddle_pic: pictures, indexPath: index)
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     @objc private func titleChange()
@@ -220,30 +202,62 @@ class HomeTableViewController: BaseTableViewController {
     
     //缓存行高
     private var rowHeightCaches = [String: CGFloat]()
+    
+    //刷新提醒视图
+    private var tipLabel: UILabel = {
+        
+        let lb = UILabel()
+        lb.backgroundColor = UIColor.orangeColor()
+        lb.text = "没有更多数据"
+        lb.textColor = UIColor.whiteColor()
+        lb.font = UIFont.systemFontOfSize(13)
+        lb.textAlignment = NSTextAlignment.Center
+        let width = UIScreen.mainScreen().bounds.width
+        
+        lb.frame = CGRect(x: 0, y: 0, width: width, height: 32)
+        lb.hidden = true
+        return lb
+    }()
+    
+    //最后一条微博标记
+    private var lastStatus = false
 }
 
 extension HomeTableViewController
 {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.statuses?.count ?? 0
+        return statusListModel.statuses?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let viewModel = statusListModel.statuses![indexPath.row]
+        let identifier = (viewModel.status.retweeted_status != nil) ? "forwardCell" : "homeCell"
+        
         //1.取出cell
-        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell", forIndexPath: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! HomeTableViewCell
         
         //2.设置数据
-        cell.viewModel = statuses![indexPath.row]
+        cell.viewModel = viewModel
         
-        //3.返回cell
+        //3.判断是否是最后一条微博
+        if indexPath.row == (statusListModel.statuses!.count - 1) {
+            
+            ZYLog("最后一条微博 \(viewModel.status.user?.screen_name)")
+            
+            lastStatus = true
+            loadData()
+        }
+        
+        //4.返回cell
         return cell
     }
     
     //返回行高
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let viewModel = statuses![indexPath.row]
+        let viewModel = statusListModel.statuses![indexPath.row]
+        let identifier = (viewModel.status.retweeted_status != nil) ? "forwardCell" : "homeCell"
         
         //1.用缓存中获取行高
         guard let height = rowHeightCaches[viewModel.status.idstr ?? "-1"]
@@ -254,7 +268,7 @@ extension HomeTableViewController
             
             //2.计算行高
             //2.1获取当前行对应的cell
-            let cell = tableView.dequeueReusableCellWithIdentifier("homeCell") as! HomeTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! HomeTableViewCell
             //2.2缓存行高
             let temp = cell.calculateRowHeight(viewModel)
             

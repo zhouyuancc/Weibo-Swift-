@@ -86,12 +86,14 @@ class StatusViewModel: NSObject {
         if let picurls = status.pic_urls
         {
             thumbnail_pic = [NSURL]()
+            //注意添加大图
+            bmiddle_pic = [NSURL]()
             
             //6.2 遍历配图数组下载图片
             for dict in picurls {
                 
                 //6.2.1 取出图片的URL字符串
-                guard let urlStr = dict["thumbnail_pic"] as? String else
+                guard var urlStr = dict["thumbnail_pic"] as? String else
                 {
                     continue
                 }
@@ -99,8 +101,19 @@ class StatusViewModel: NSObject {
                 //6.2.2 根据字符串创建URL
                 let url = NSURL(string: urlStr)!
                 thumbnail_pic?.append(url)
+                
+                //6.2.3 处理大图
+                urlStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
+                bmiddle_pic?.append(NSURL(string: urlStr)!)
             }
             
+        }
+        
+        //7.处理转发
+        if let text = status.retweeted_status?.text
+        {
+            let name = status.retweeted_status?.user?.screen_name ?? ""
+            forwardText = "@" + name + ": " + text
         }
         
         
@@ -123,5 +136,12 @@ class StatusViewModel: NSObject {
     
     /// 保存所有配图URL
     var thumbnail_pic: [NSURL]?
+    
+    ///保存所有配图大图
+    var bmiddle_pic: [NSURL]?
+    
+    /// 转发 
+    ///转发微博格式化之后正文
+    var forwardText: String?
     
 }

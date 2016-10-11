@@ -23,6 +23,8 @@
 		CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC871D3781C1009FEE62 /* DiscoverTableViewController.swift */; };
 		CB5EBC8C1D391FC1009FEE62 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = CB5EBC8A1D391FC1009FEE62 /* MainVCSettings.json */; };
 		CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */; };
+		CB6864D41DABCD71008F61D1 /* ZYRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6864D31DABCD71008F61D1 /* ZYRefreshView.xib */; };
+		CB6864D81DABD03D008F61D1 /* ZYRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6864D71DABD03D008F61D1 /* ZYRefreshView.swift */; };
 		CB7EE59C1D61F38800C91AC8 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */; };
 		CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */; };
 		CB7EE5A41D61FCCE00C91AC8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A31D61FCCE00C91AC8 /* Common.swift */; };
@@ -49,6 +51,12 @@
 		CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */; };
 		CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */; };
 		CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */; };
+		CBE36D531DA9EF5900F85159 /* StatusListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D521DA9EF5900F85159 /* StatusListModel.swift */; };
+		CBE36D571DAA1F8400F85159 /* ZYPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D561DAA1F8400F85159 /* ZYPictureView.swift */; };
+		CBE36D5A1DAA229000F85159 /* ZYProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D591DAA229000F85159 /* ZYProgressView.swift */; };
+		CBE36D5C1DAA24BE00F85159 /* ZYProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D5B1DAA24BE00F85159 /* ZYProgressImageView.swift */; };
+		CBE36D601DAA286F00F85159 /* ZYBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D5F1DAA286F00F85159 /* ZYBrowserViewController.swift */; };
+		CBE36D621DAA28A200F85159 /* ZYBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D611DAA28A200F85159 /* ZYBrowserCell.swift */; };
 		CBEF605D1DA34F6200FF0A10 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF605C1DA34F6200FF0A10 /* StatusViewModel.swift */; };
 		CBEF605F1DA34FA100FF0A10 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF605E1DA34FA100FF0A10 /* Status.swift */; };
 		CBEF60611DA34FAD00FF0A10 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF60601DA34FAD00FF0A10 /* User.swift */; };
@@ -98,6 +106,8 @@
 		CB5EBC871D3781C1009FEE62 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		CB5EBC8A1D391FC1009FEE62 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		CB6864D31DABCD71008F61D1 /* ZYRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYRefreshView.xib; sourceTree = "<group>"; };
+		CB6864D71DABD03D008F61D1 /* ZYRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYRefreshView.swift; sourceTree = "<group>"; };
 		CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		CB7EE5A31D61FCCE00C91AC8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -124,6 +134,12 @@
 		CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPopoverViewController.swift; sourceTree = "<group>"; };
 		CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		CBE36D521DA9EF5900F85159 /* StatusListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListModel.swift; sourceTree = "<group>"; };
+		CBE36D561DAA1F8400F85159 /* ZYPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPictureView.swift; sourceTree = "<group>"; };
+		CBE36D591DAA229000F85159 /* ZYProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYProgressView.swift; sourceTree = "<group>"; };
+		CBE36D5B1DAA24BE00F85159 /* ZYProgressImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYProgressImageView.swift; sourceTree = "<group>"; };
+		CBE36D5F1DAA286F00F85159 /* ZYBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYBrowserViewController.swift; sourceTree = "<group>"; };
+		CBE36D611DAA28A200F85159 /* ZYBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYBrowserCell.swift; sourceTree = "<group>"; };
 		CBEF605C1DA34F6200FF0A10 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		CBEF605E1DA34FA100FF0A10 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		CBEF60601DA34FAD00FF0A10 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -271,11 +287,15 @@
 		CB5EBC7A1D3780EF009FEE62 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CBE36D5D1DAA280200F85159 /* Browser */,
+				CBE36D5E1DAA280F00F85159 /* Refresh */,
 				CBCA5BC21D4B01BC0047DCC5 /* QRCode */,
 				CB5986931D47003900DC2147 /* Popover */,
 				CB5EBC811D378183009FEE62 /* HomeTableViewController.swift */,
 				CB87D1D11D41E0FA004C23B5 /* Home.storyboard */,
 				CBEF60661DA3662300FF0A10 /* HomeTableViewCell.swift */,
+				CBE36D561DAA1F8400F85159 /* ZYPictureView.swift */,
+				CBE36D521DA9EF5900F85159 /* StatusListModel.swift */,
 				CBEF605C1DA34F6200FF0A10 /* StatusViewModel.swift */,
 				CBEF605E1DA34FA100FF0A10 /* Status.swift */,
 				CBEF60601DA34FAD00FF0A10 /* User.swift */,
@@ -318,6 +338,7 @@
 		CB5EBC7E1D3780EF009FEE62 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CBE36D581DAA226500F85159 /* ProgressView */,
 				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
 				CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */,
 				CB87D1E71D465B59004C23B5 /* TitleButton.swift */,
@@ -368,6 +389,33 @@
 				CB7EE5A91D620F2E00C91AC8 /* UserAccount.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		CBE36D581DAA226500F85159 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				CBE36D591DAA229000F85159 /* ZYProgressView.swift */,
+				CBE36D5B1DAA24BE00F85159 /* ZYProgressImageView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		CBE36D5D1DAA280200F85159 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				CBE36D5F1DAA286F00F85159 /* ZYBrowserViewController.swift */,
+				CBE36D611DAA28A200F85159 /* ZYBrowserCell.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		CBE36D5E1DAA280F00F85159 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				CB6864D31DABCD71008F61D1 /* ZYRefreshView.xib */,
+				CB6864D71DABD03D008F61D1 /* ZYRefreshView.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +532,7 @@
 				CB7EE59C1D61F38800C91AC8 /* OAuth.storyboard in Resources */,
 				CB7EE5AD1D65905600C91AC8 /* Welcome.storyboard in Resources */,
 				CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */,
+				CB6864D41DABCD71008F61D1 /* ZYRefreshView.xib in Resources */,
 				CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */,
 				CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */,
 				CB87D1D81D41E2AD004C23B5 /* Profile.storyboard in Resources */,
@@ -564,7 +613,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBEF605D1DA34F6200FF0A10 /* StatusViewModel.swift in Sources */,
+				CB6864D81DABD03D008F61D1 /* ZYRefreshView.swift in Sources */,
 				CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */,
+				CBE36D531DA9EF5900F85159 /* StatusListModel.swift in Sources */,
 				CB5EBC821D378183009FEE62 /* HomeTableViewController.swift in Sources */,
 				CB88C27C1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift in Sources */,
 				CB5EBC861D3781AC009FEE62 /* ProfileTableViewController.swift in Sources */,
@@ -578,19 +629,24 @@
 				CB7EE5A41D61FCCE00C91AC8 /* Common.swift in Sources */,
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */,
+				CBE36D5C1DAA24BE00F85159 /* ZYProgressImageView.swift in Sources */,
 				CBEF605F1DA34FA100FF0A10 /* Status.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
+				CBE36D571DAA1F8400F85159 /* ZYPictureView.swift in Sources */,
 				CB7EE5A81D620A5E00C91AC8 /* String+Extension.swift in Sources */,
 				CBEF60651DA35BC400FF0A10 /* NSDate+Extension.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
+				CBE36D601DAA286F00F85159 /* ZYBrowserViewController.swift in Sources */,
 				CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */,
 				CB7EE5A61D6208C200C91AC8 /* NetworkTools.swift in Sources */,
 				CBEF60611DA34FAD00FF0A10 /* User.swift in Sources */,
 				CB87D1DC1D41E571004C23B5 /* MainStoryboardViewController.swift in Sources */,
 				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
+				CBE36D621DAA28A200F85159 /* ZYBrowserCell.swift in Sources */,
 				CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */,
 				CB7EE5B31D6598B200C91AC8 /* NewfeatureViewController.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
+				CBE36D5A1DAA229000F85159 /* ZYProgressView.swift in Sources */,
 				CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,
 			);

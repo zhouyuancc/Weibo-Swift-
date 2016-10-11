@@ -27,6 +27,9 @@ class Status: NSObject {
     
     /// 配图数组
     var pic_urls: [[String: AnyObject]]?
+    
+    /// 转发微博
+    var retweeted_status: Status?
 
     init(dict: [String: AnyObject]) {
         super.init()
@@ -40,6 +43,13 @@ class Status: NSObject {
         if key == "user" {
             
             user = User(dict: value as! [String: AnyObject])
+            return
+        }
+        
+        //转发
+        if key == "retweeted_status" {
+            
+            retweeted_status = Status(dict: value as! [String : AnyObject])
             return
         }
         super.setValue(value, forKey: key)

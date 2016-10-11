@@ -27,7 +27,7 @@ class NetworkTools: AFHTTPSessionManager {
     }()
     
     // MARK: - 外部控制方法
-    func loadStatuses(finished: (array: [[String:AnyObject]]?, error: NSError?)->())
+    func loadStatuses(since_id: String, max_id: String, finished: (array: [[String:AnyObject]]?, error: NSError?)->())
     {
         assert(UserAccount.loadUserAccount() != nil, "必须授权之后才能获取微博数据")
         
@@ -35,7 +35,8 @@ class NetworkTools: AFHTTPSessionManager {
         let path = "2/statuses/home_timeline.json"
         
         //2.准备参数
-        let parameters = ["access_token": UserAccount.loadUserAccount()!.access_token!]
+        let temp = (max_id != "0") ? "\(Int(max_id)! - 1)" : max_id
+        let parameters = ["access_token": UserAccount.loadUserAccount()!.access_token!,"since_id": since_id, "max_id": temp]
         
         //3.发送GET请求
         GET(path, parameters: parameters, progress: nil, success: { (task, objc) in

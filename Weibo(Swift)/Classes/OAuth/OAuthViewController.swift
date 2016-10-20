@@ -41,7 +41,8 @@ class OAuthViewController: UIViewController {
     }
     @IBAction func autoBtnClick() {
         
-        let jsStr = "document.getElementById('userId').value = 'kamui-c@163.com';"
+        let jsStr = "document.getElementById('userId').value = 'kamui-c@163.com';" +
+        "document.getElementById('passwd').value = '';"
         //webView调用js
         customWebView.stringByEvaluatingJavaScriptFromString(jsStr)
     }

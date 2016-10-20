@@ -83,7 +83,7 @@ class StatusViewModel: NSObject {
         
         //6.处理配图URL
         //6.1 从模型中取出配图数组
-        if let picurls = status.pic_urls
+        if let picurls = (status.retweeted_status != nil) ? status.retweeted_status?.pic_urls : status.pic_urls
         {
             thumbnail_pic = [NSURL]()
             //注意添加大图
@@ -106,7 +106,6 @@ class StatusViewModel: NSObject {
                 urlStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
                 bmiddle_pic?.append(NSURL(string: urlStr)!)
             }
-            
         }
         
         //7.处理转发

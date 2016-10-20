@@ -74,9 +74,12 @@ class ZYPictureView: UICollectionView {
         {
             let key = viewModel?.thumbnail_pic?.first?.absoluteString
             
+            ZYLog(key)
+            
             //从缓存中获取已经下载好的图片,其中key是图片的url
             let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
-            
+// MARK: - SDWebImageManager获取得来的尺寸小
+//            ZYLog(image.size)
             return (image.size, image.size)
         }
         

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CAAE8553F2D31977D6E6BDCA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF11983EB4F8DB044945A7C /* Pods.framework */; };
+		CB27C9721DB5061A004C696F /* ZYKeyboardEmoticonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB27C9711DB5061A004C696F /* ZYKeyboardEmoticonCell.swift */; };
+		CB27C9761DB5068F004C696F /* ZYKeyboardAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB27C9751DB5068F004C696F /* ZYKeyboardAttachment.swift */; };
+		CB27C9781DB50D0C004C696F /* ZYKeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB27C9771DB50D0C004C696F /* ZYKeyboardTextView.swift */; };
+		CB27C97A1DB51446004C696F /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB27C9791DB51446004C696F /* ComposeTextView.swift */; };
 		CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3135801D40465900F9F019 /* UIButton+Extension.swift */; };
 		CB3135831D4093C900F9F019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3135821D4093C900F9F019 /* Main.storyboard */; };
 		CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382D471D2E45EC001370D3 /* AppDelegate.swift */; };
@@ -25,6 +29,8 @@
 		CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */; };
 		CB6864D41DABCD71008F61D1 /* ZYRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6864D31DABCD71008F61D1 /* ZYRefreshView.xib */; };
 		CB6864D81DABD03D008F61D1 /* ZYRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6864D71DABD03D008F61D1 /* ZYRefreshView.swift */; };
+		CB7D452A1DADF5C300F62FB2 /* ComposeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7D45291DADF5C300F62FB2 /* ComposeViewController.storyboard */; };
+		CB7D452C1DAE4F6700F62FB2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D452B1DAE4F6700F62FB2 /* ComposeViewController.swift */; };
 		CB7EE59C1D61F38800C91AC8 /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */; };
 		CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */; };
 		CB7EE5A41D61FCCE00C91AC8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE5A31D61FCCE00C91AC8 /* Common.swift */; };
@@ -47,10 +53,15 @@
 		CB87D1E61D464D22004C23B5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */; };
 		CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D1E71D465B59004C23B5 /* TitleButton.swift */; };
 		CB88C27C1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */; };
+		CBA4DC811DB78D550006E4D4 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4DC801DB78D550006E4D4 /* ComposeTitleView.swift */; };
+		CBA4DC831DB790340006E4D4 /* ZYPhotoPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA4DC821DB790340006E4D4 /* ZYPhotoPickerCollectionViewController.swift */; };
 		CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */; };
 		CBCA5BC11D4AFD500047DCC5 /* ZYPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */; };
 		CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */; };
 		CBCA5BC61D4B9C320047DCC5 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */; };
+		CBCB6CB81DAFA2E70051D8B1 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CBCB6CB71DAFA2E70051D8B1 /* Emoticons.bundle */; };
+		CBCB6CBA1DAFA33C0051D8B1 /* ZYKeyboardEmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB6CB91DAFA33C0051D8B1 /* ZYKeyboardEmoticonViewController.swift */; };
+		CBCB6CBC1DAFAAB50051D8B1 /* ZYKeyboardPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB6CBB1DAFAAB50051D8B1 /* ZYKeyboardPackage.swift */; };
 		CBE36D531DA9EF5900F85159 /* StatusListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D521DA9EF5900F85159 /* StatusListModel.swift */; };
 		CBE36D571DAA1F8400F85159 /* ZYPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D561DAA1F8400F85159 /* ZYPictureView.swift */; };
 		CBE36D5A1DAA229000F85159 /* ZYProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE36D591DAA229000F85159 /* ZYProgressView.swift */; };
@@ -85,6 +96,10 @@
 		8599B9C6B0D98CA27D930107 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9EF11983EB4F8DB044945A7C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F197D9A56039C7474E9A1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB27C9711DB5061A004C696F /* ZYKeyboardEmoticonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYKeyboardEmoticonCell.swift; sourceTree = "<group>"; };
+		CB27C9751DB5068F004C696F /* ZYKeyboardAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYKeyboardAttachment.swift; sourceTree = "<group>"; };
+		CB27C9771DB50D0C004C696F /* ZYKeyboardTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYKeyboardTextView.swift; sourceTree = "<group>"; };
+		CB27C9791DB51446004C696F /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		CB3135801D40465900F9F019 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		CB3135821D4093C900F9F019 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CB382D441D2E45EB001370D3 /* 微博Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +123,8 @@
 		CB5EBC8B1D391FC1009FEE62 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		CB6864D31DABCD71008F61D1 /* ZYRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYRefreshView.xib; sourceTree = "<group>"; };
 		CB6864D71DABD03D008F61D1 /* ZYRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYRefreshView.swift; sourceTree = "<group>"; };
+		CB7D45291DADF5C300F62FB2 /* ComposeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ComposeViewController.storyboard; sourceTree = "<group>"; };
+		CB7D452B1DAE4F6700F62FB2 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		CB7EE59B1D61F38800C91AC8 /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
 		CB7EE5A11D61F4FB00C91AC8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		CB7EE5A31D61FCCE00C91AC8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -130,10 +147,15 @@
 		CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		CB87D1E71D465B59004C23B5 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		CB88C27B1D4F419C00F4D6CB /* QRCodeMyBusinessCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeMyBusinessCardViewController.swift; sourceTree = "<group>"; };
+		CBA4DC801DB78D550006E4D4 /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
+		CBA4DC821DB790340006E4D4 /* ZYPhotoPickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPhotoPickerCollectionViewController.swift; sourceTree = "<group>"; };
 		CBCA5BBE1D4AD22E0047DCC5 /* ZYPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPresentationManager.swift; sourceTree = "<group>"; };
 		CBCA5BC01D4AFD500047DCC5 /* ZYPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPopoverViewController.swift; sourceTree = "<group>"; };
 		CBCA5BC31D4B01E10047DCC5 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		CBCA5BC51D4B9C320047DCC5 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		CBCB6CB71DAFA2E70051D8B1 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		CBCB6CB91DAFA33C0051D8B1 /* ZYKeyboardEmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYKeyboardEmoticonViewController.swift; sourceTree = "<group>"; };
+		CBCB6CBB1DAFAAB50051D8B1 /* ZYKeyboardPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYKeyboardPackage.swift; sourceTree = "<group>"; };
 		CBE36D521DA9EF5900F85159 /* StatusListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListModel.swift; sourceTree = "<group>"; };
 		CBE36D561DAA1F8400F85159 /* ZYPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYPictureView.swift; sourceTree = "<group>"; };
 		CBE36D591DAA229000F85159 /* ZYProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYProgressView.swift; sourceTree = "<group>"; };
@@ -271,6 +293,11 @@
 		CB5EBC781D3780EF009FEE62 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				CB7D45291DADF5C300F62FB2 /* ComposeViewController.storyboard */,
+				CB7D452B1DAE4F6700F62FB2 /* ComposeViewController.swift */,
+				CBA4DC801DB78D550006E4D4 /* ComposeTitleView.swift */,
+				CB27C9791DB51446004C696F /* ComposeTextView.swift */,
+				CBA4DC821DB790340006E4D4 /* ZYPhotoPickerCollectionViewController.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -338,6 +365,7 @@
 		CB5EBC7E1D3780EF009FEE62 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CBCB6CB61DAFA2E70051D8B1 /* KeyboardEmoticon */,
 				CBE36D581DAA226500F85159 /* ProgressView */,
 				CB3135801D40465900F9F019 /* UIButton+Extension.swift */,
 				CB87D1E51D464D22004C23B5 /* UIBarButtonItem+Extension.swift */,
@@ -389,6 +417,19 @@
 				CB7EE5A91D620F2E00C91AC8 /* UserAccount.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		CBCB6CB61DAFA2E70051D8B1 /* KeyboardEmoticon */ = {
+			isa = PBXGroup;
+			children = (
+				CBCB6CB71DAFA2E70051D8B1 /* Emoticons.bundle */,
+				CB27C9751DB5068F004C696F /* ZYKeyboardAttachment.swift */,
+				CB27C9711DB5061A004C696F /* ZYKeyboardEmoticonCell.swift */,
+				CBCB6CB91DAFA33C0051D8B1 /* ZYKeyboardEmoticonViewController.swift */,
+				CBCB6CBB1DAFAAB50051D8B1 /* ZYKeyboardPackage.swift */,
+				CB27C9771DB50D0C004C696F /* ZYKeyboardTextView.swift */,
+			);
+			path = KeyboardEmoticon;
 			sourceTree = "<group>";
 		};
 		CBE36D581DAA226500F85159 /* ProgressView */ = {
@@ -489,6 +530,7 @@
 				TargetAttributes = {
 					CB382D431D2E45EB001370D3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = R4C556L2UL;
 					};
 					CB382D571D2E45EC001370D3 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -533,6 +575,8 @@
 				CB7EE5AD1D65905600C91AC8 /* Welcome.storyboard in Resources */,
 				CB382D4F1D2E45EC001370D3 /* Assets.xcassets in Resources */,
 				CB6864D41DABCD71008F61D1 /* ZYRefreshView.xib in Resources */,
+				CBCB6CB81DAFA2E70051D8B1 /* Emoticons.bundle in Resources */,
+				CB7D452A1DADF5C300F62FB2 /* ComposeViewController.storyboard in Resources */,
 				CBCA5BC41D4B01E10047DCC5 /* QRCode.storyboard in Resources */,
 				CB87D1D21D41E0FA004C23B5 /* Home.storyboard in Resources */,
 				CB87D1D81D41E2AD004C23B5 /* Profile.storyboard in Resources */,
@@ -612,6 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA4DC831DB790340006E4D4 /* ZYPhotoPickerCollectionViewController.swift in Sources */,
 				CBEF605D1DA34F6200FF0A10 /* StatusViewModel.swift in Sources */,
 				CB6864D81DABD03D008F61D1 /* ZYRefreshView.swift in Sources */,
 				CB87D1E21D423389004C23B5 /* VisitorView.swift in Sources */,
@@ -630,22 +675,30 @@
 				CB382D481D2E45EC001370D3 /* AppDelegate.swift in Sources */,
 				CB5986971D47053900DC2147 /* ZYPresentationController.swift in Sources */,
 				CBE36D5C1DAA24BE00F85159 /* ZYProgressImageView.swift in Sources */,
+				CB27C97A1DB51446004C696F /* ComposeTextView.swift in Sources */,
 				CBEF605F1DA34FA100FF0A10 /* Status.swift in Sources */,
 				CB5EBC841D378197009FEE62 /* MessageTableViewController.swift in Sources */,
 				CBE36D571DAA1F8400F85159 /* ZYPictureView.swift in Sources */,
 				CB7EE5A81D620A5E00C91AC8 /* String+Extension.swift in Sources */,
+				CB27C9781DB50D0C004C696F /* ZYKeyboardTextView.swift in Sources */,
 				CBEF60651DA35BC400FF0A10 /* NSDate+Extension.swift in Sources */,
 				CB5EBC881D3781C1009FEE62 /* DiscoverTableViewController.swift in Sources */,
 				CBE36D601DAA286F00F85159 /* ZYBrowserViewController.swift in Sources */,
+				CB7D452C1DAE4F6700F62FB2 /* ComposeViewController.swift in Sources */,
 				CB7EE5A21D61F4FB00C91AC8 /* OAuthViewController.swift in Sources */,
 				CB7EE5A61D6208C200C91AC8 /* NetworkTools.swift in Sources */,
 				CBEF60611DA34FAD00FF0A10 /* User.swift in Sources */,
 				CB87D1DC1D41E571004C23B5 /* MainStoryboardViewController.swift in Sources */,
+				CBCB6CBC1DAFAAB50051D8B1 /* ZYKeyboardPackage.swift in Sources */,
 				CB3135811D40465900F9F019 /* UIButton+Extension.swift in Sources */,
 				CBE36D621DAA28A200F85159 /* ZYBrowserCell.swift in Sources */,
 				CBCA5BBF1D4AD22E0047DCC5 /* ZYPresentationManager.swift in Sources */,
+				CBCB6CBA1DAFA33C0051D8B1 /* ZYKeyboardEmoticonViewController.swift in Sources */,
 				CB7EE5B31D6598B200C91AC8 /* NewfeatureViewController.swift in Sources */,
+				CB27C9721DB5061A004C696F /* ZYKeyboardEmoticonCell.swift in Sources */,
+				CBA4DC811DB78D550006E4D4 /* ComposeTitleView.swift in Sources */,
 				CB5EBC801D378162009FEE62 /* MainViewController.swift in Sources */,
+				CB27C9761DB5068F004C696F /* ZYKeyboardAttachment.swift in Sources */,
 				CBE36D5A1DAA229000F85159 /* ZYProgressView.swift in Sources */,
 				CB87D1E81D465B59004C23B5 /* TitleButton.swift in Sources */,
 				CB5EBC8D1D391FC1009FEE62 /* NullViewController.swift in Sources */,
@@ -702,7 +755,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haichuan Zhao (FSYZY7B99T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haichuan Zhao (FSYZY7B99T)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -721,9 +775,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "aaae1c71-5866-4562-89de-fc8c118a3c37";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -760,8 +815,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "aaae1c71-5866-4562-89de-fc8c118a3c37";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -773,12 +829,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haichuan Zhao (FSYZY7B99T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haichuan Zhao (FSYZY7B99T)";
 				INFOPLIST_FILE = "Weibo(Swift)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zhou.Weibo-Swift-";
 				PRODUCT_NAME = "微博Swift";
+				PROVISIONING_PROFILE = "aaae1c71-5866-4562-89de-fc8c118a3c37";
 			};
 			name = Debug;
 		};
@@ -788,11 +847,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Weibo(Swift)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zhou.Weibo-Swift-";
 				PRODUCT_NAME = "微博Swift";
+				PROVISIONING_PROFILE = "aaae1c71-5866-4562-89de-fc8c118a3c37";
 			};
 			name = Release;
 		};

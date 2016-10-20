@@ -34,7 +34,23 @@ class MainStoryboardViewController: UITabBarController {
     // MARK: - 监听加号按钮点击
     @objc private func compseBtnClick(btn: UIButton)
     {
-//        ZYLog(btn)
+        /**
+         UITextField
+         不可以换行
+         不可以滚动
+         可以显示占位提示文本 placeholder
+         
+         UITextView
+         可以换行
+         可以滚动
+         不可以显示占位提示文本
+         */
+        //1.创建控制器
+        let sb = UIStoryboard(name: "ComposeViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController()!
+        
+        //2.弹出控制器
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     // MARK: - 懒加载

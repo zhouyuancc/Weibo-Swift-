@@ -125,7 +125,7 @@ extension ZYBrowserViewController: UICollectionViewDataSource
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("browserCell", forIndexPath: indexPath) as! ZYBrowserCell
         
-        cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.redColor() : UIColor.greenColor()
+//        cell.backgroundColor = (indexPath.item % 2 == 0) ? UIColor.redColor() : UIColor.greenColor()
         cell.imageURL = bmiddle_pic[indexPath.item]
         
         return cell
